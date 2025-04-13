@@ -1,6 +1,222 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #1f2937;
+}
+
+/* Form element styles */
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 1.75rem;
+}
+
+::ng-deep .mat-mdc-form-field-flex {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid rgba(79, 70, 229, 0.1) !important;
+  border-radius: 1rem !important;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1rem !important;
+}
+
+/* Error state */
+::ng-deep .mat-mdc-form-field.mat-form-field-invalid .mat-mdc-form-field-flex {
+  border-color: rgba(239, 68, 68, 0.5) !important;
+  background-color: rgba(254, 242, 242, 0.9) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-form-field-invalid .mat-mdc-form-field-flex:hover {
+  border-color: rgba(239, 68, 68, 0.7) !important;
+  box-shadow: 0 4px 12px -2px rgba(239, 68, 68, 0.15);
+}
+
+::ng-deep .mat-mdc-form-field.mat-form-field-invalid .mat-mdc-form-field-flex:focus-within {
+  border-color: rgba(239, 68, 68, 0.8) !important;
+  box-shadow: 0 4px 16px -2px rgba(239, 68, 68, 0.2);
+}
+
+/* Error message */
+::ng-deep .mat-mdc-form-field-error-wrapper {
+  padding: 0.5rem 0 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-error {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: rgb(239, 68, 68) !important;
+  letter-spacing: 0.01em;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.25rem;
+}
+
+::ng-deep .mat-mdc-form-field-error::before {
+  content: '⚠';
+  font-size: 0.9rem;
+}
+
+/* Helper text */
+::ng-deep .mat-mdc-form-field-hint-wrapper {
+  padding: 0.5rem 0 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-hint {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: rgb(107, 114, 128) !important;
+  letter-spacing: 0.01em;
+}
+
+/* Success state */
+::ng-deep .mat-mdc-form-field.mat-form-field-valid:not(.mat-focused) .mat-mdc-form-field-flex {
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-form-field-valid:not(.mat-focused) .mat-mdc-form-field-flex:hover {
+  border-color: rgba(34, 197, 94, 0.5) !important;
+  box-shadow: 0 4px 12px -2px rgba(34, 197, 94, 0.1);
+}
+
+::ng-deep .mat-mdc-form-field-flex:hover {
+  border-color: rgba(79, 70, 229, 0.3) !important;
+  background-color: white !important;
+  box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.1);
+}
+
+::ng-deep .mat-mdc-form-field-flex:focus-within {
+  border-color: rgba(79, 70, 229, 0.5) !important;
+  background-color: white !important;
+  box-shadow: 0 4px 16px -2px rgba(79, 70, 229, 0.15);
+}
+
+::ng-deep .mat-mdc-form-field-label {
+  font-family: 'Playfair Display', serif !important;
+  color: #4338ca !important;
+  font-weight: 600;
+  font-size: 1rem !important;
+  letter-spacing: 0.01em;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.95rem;
+}
+
+::ng-deep .mat-mdc-form-field-underline,
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+/* Submit button */
+::ng-deep .mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  color: white;
+  border-radius: 1rem;
+  padding: 1.75rem 3.5rem;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  margin-top: 2rem;
+}
+
+::ng-deep .mat-mdc-raised-button.mat-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -8px rgba(79, 70, 229, 0.5);
+  background: linear-gradient(135deg, #4338ca, #6d28d9) !important;
+}
+
+/* Section headings */
+::ng-deep .mat-mdc-card {
+  border-radius: 1.25rem !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  margin-bottom: 2rem !important;
+}
+
+::ng-deep .mat-mdc-card-title,
+::ng-deep .jsonforms-group-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  margin: 2rem 0 2rem !important;
+  padding-bottom: 1rem;
+  position: relative;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #4338ca, #7c3aed) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+::ng-deep .mat-mdc-card-title::after,
+::ng-deep .jsonforms-group-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 4rem;
+  height: 3px;
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+/* Radio and Checkbox styles */
+::ng-deep .mat-mdc-radio-button {
+  margin-right: 1.5rem !important;
+}
+
+::ng-deep .mat-mdc-radio-button .mdc-radio {
+  padding: 0.5rem !important;
+  --mdc-radio-selected-focus-icon-color: #4f46e5;
+  --mdc-radio-selected-hover-icon-color: #4f46e5;
+  --mdc-radio-selected-icon-color: #4f46e5;
+  --mdc-radio-selected-pressed-icon-color: #4f46e5;
+}
+
+::ng-deep .mat-mdc-checkbox {
+  margin-right: 1.5rem !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox {
+  padding: 0.5rem !important;
+  --mdc-checkbox-selected-checkmark-color: white;
+  --mdc-checkbox-selected-focus-icon-color: #4f46e5;
+  --mdc-checkbox-selected-hover-icon-color: #4f46e5;
+  --mdc-checkbox-selected-icon-color: #4f46e5;
+  --mdc-checkbox-selected-pressed-icon-color: #4f46e5;
+}
+
+/* Select styles */
+::ng-deep .mat-mdc-select-panel {
+  border-radius: 1rem !important;
+  margin-top: 0.5rem !important;
+  background: white !important;
+  border: 2px solid rgba(79, 70, 229, 0.1) !important;
+  box-shadow: 0 20px 40px -8px rgba(79, 70, 229, 0.15) !important;
+}
+
+::ng-deep .mat-mdc-option {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.95rem !important;
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item--selected {
+  background-color: rgba(79, 70, 229, 0.1) !important;
+  color: #4338ca !important;
+}

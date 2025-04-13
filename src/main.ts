@@ -3,6 +3,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { environment } from './environments/environment';
+import { JsonFormsAngularService } from '@jsonforms/angular';
 
 if (environment.production) {
   enableProdMode();
@@ -10,6 +11,9 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideAnimations()
+    provideAnimations(),
+    JsonFormsAngularService,
+    { provide: 'enableObservables', useValue: true },
+    { provide: 'ajv', useValue: {} }
   ]
 }).catch(err => console.error(err));

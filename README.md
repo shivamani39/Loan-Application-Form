@@ -1,31 +1,145 @@
-# JSON Forms Angular Seed
+# Loan Application Form
 
-JSONForms Angular Seed.
+A modern, responsive loan application form built with Angular and JSON Forms. This application provides a user-friendly interface for submitting loan applications with real-time validation and feedback.
 
-## Installation
+## Features
 
-Run `npm ci` to install the necessary dependencies.
+- 🎨 Modern UI with gradient backgrounds and smooth animations
+- 📱 Fully responsive design that works on all devices
+- ✨ Real-time form validation
+- 🔄 Instant form submission with feedback
+- 🏗️ Built with Angular Material and JSON Forms
+- 🎯 Clean and intuitive user interface
 
-## Development server
+## Prerequisites
 
-Run `npm start` for a dev server. Navigate to [http://localhost:4200/](http://localhost:4200/). The app will automatically reload if you change any of the source files.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Angular CLI (`npm install -g @angular/cli`)
 
-## Build
+## Quick Start
 
-Run `npm build` to build the project. The build artifacts will be stored in the `dist` directory. Use the `--configuration production` flag for a production build.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd loan-application-form
+```
 
-## Running unit tests
+2. Install dependencies:
+```bash
+npm install
+```
 
-Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Start development server:
+```bash
+ng serve
+```
 
-## Running end-to-end tests
+4. Open [http://localhost:4200](http://localhost:4200) in your browser
 
-Run `npm e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## JSON Structure
 
-## Customizations
+### Data Model
+```typescript
+interface LoanApplicationData {
+  firstName: string;          // Min length: 2
+  lastName: string;           // Min length: 2
+  email: string;             // Must be valid email
+  existingCustomer: boolean;  // True/False
+  customerNumber?: string;    // Required if existingCustomer is true
+  loanType: string;          // One of: personal, business, mortgage, auto
+  loanAmount: number;        // Minimum: 1000
+  address: {
+    street: string;          // Min length: 5, Max length: 100
+    city: string;            // Min length: 2, Letters only
+    state: string;           // Min length: 2, Letters only
+    postalCode: string;      // 5-6 digits
+    country: string;         // Min length: 2, Letters only
+  };
+  agreeToTerms: boolean;     // Must be true
+}
+```
 
-For this showcase we hardcoded the schemas (`schema.json`, `uischema.json`) and the data (`data.ts`). You can replace them with your own or handle them completely dynamically.
+### Schema Validation Rules
 
-We implemented three custom controls (`custom.autocomplete.ts`, `lang.control.ts` and `data.control.ts`). If you don't need them just remove them! See also `store.ts` where these custom renderers are registered.
+- **Required Fields:**
+  - First Name and Last Name (min 2 characters)
+  - Email (valid email format)
+  - Loan Type (must be one of the predefined types)
+  - Address (all fields required)
+  - Terms Agreement (must be accepted)
 
-In `app.component.ts` we customized the validation. This step is optional and can be skipped if needed.
+- **Conditional Fields:**
+  - Customer Number (only if existingCustomer is true)
+  - Business Address (only for business loans)
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── app.component.ts    # Main form component with schema
+│   ├── app.module.ts       # Application module
+│   └── custom/            # Custom form elements
+├── assets/                 # Static assets
+└── styles/                 # Global styles
+```
+
+## Key Files
+
+- `app.component.ts`: Contains form schema, UI schema, and validation logic
+- `app.module.ts`: Module configuration and dependency imports
+- `styles.css`: Global styles including Tailwind CSS configuration
+
+## Assumptions
+
+1. **Form Submission:**
+   - Form data is submitted via API (not implemented)
+   - Shows success alert on submission
+   - Resets form after successful submission
+
+2. **Validation:**
+   - Client-side validation only
+   - No server-side validation implemented
+   - Basic email format validation
+
+3. **User Experience:**
+   - Form is responsive on all devices
+   - Real-time validation feedback
+   - No session persistence
+
+4. **Data Privacy:**
+   - No sensitive data encryption
+   - No GDPR compliance implemented
+   - Data not stored locally
+
+## Development
+
+### Running Tests
+```bash
+ng test                 # Unit tests
+ng e2e                  # End-to-end tests
+```
+
+### Building for Production
+```bash
+ng build --prod        # Creates production build
+```
+
+### Environment Setup
+1. Install Node.js and npm
+2. Install Angular CLI: `npm install -g @angular/cli`
+3. Install dependencies: `npm install`
+4. Configure environment variables (if needed)
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/my-feature`
+3. Commit changes: `git commit -am 'Add feature'`
+4. Push to branch: `git push origin feature/my-feature`
+5. Submit pull request
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file

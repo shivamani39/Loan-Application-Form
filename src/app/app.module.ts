@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,20 +16,20 @@ import { CustomInputComponent, customInputTester } from './custom-input.componen
 
 @NgModule({
   declarations: [
-    CustomAutocompleteControlRenderer,
     DataDisplayComponent,
     LangComponent,
     CustomInputComponent
   ],
   imports: [
-    AppComponent,
     BrowserModule,
     BrowserAnimationsModule,
     JsonFormsModule,
     JsonFormsAngularMaterialModule,
     MatAutocompleteModule,
+    MatInputModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomAutocompleteControlRenderer
   ],
   schemas: [],
   providers: [
